@@ -1,0 +1,53 @@
+<div class="grid p-3 m-auto" style="max-width: 90%">
+  <div class="col-1">
+    <app-add-new-investment></app-add-new-investment>
+  </div>
+  <div class="col-1">
+    <div class="bg-black-alpha-30 text-center pt-3 pb-3 w-6rem m-auto border-2 border-round-2xl cursor-pointer"
+         (click)="refresh()" style="color: white">
+      <i class="pi pi-refresh" style="line-height: 30px"></i>
+      <span class="pl-2">Refresh</span>
+    </div>
+  </div>
+  <div class="col-8">
+    <div class="text-center text-white p-3 text-2xl">CS INVESTOR</div>
+  </div>
+  <div class="col-2">
+    <div class="text-center p-3"></div>
+  </div>
+</div>
+<p-table class="text-center m-0" [value]="investments" [tableStyle]="{ 'min-width': '50rem', 'max-width': '90%' }">
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Name</th>
+      <th>Invested at</th>
+      <th>Quantity</th>
+      <th>Buy €</th>
+      <th>Current €</th>
+      <th>Profit €</th>
+      <th>Detail</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-investment>
+    <tr>
+      <td>{{ investment.name }}</td>
+      <td>{{ investment.investedAt.seconds * 1000 | date:'dd.MM.yyyy' }}</td>
+      <td>{{ investment.quantity }}</td>
+      <td>{{ investment.buyPrice }}</td>
+      <td [ngStyle]="{'color': (investment.currentPrice - investment.buyPrice) >= 0 ? 'green' : 'red'}">{{investment.currentPrice}}</td>
+      <td>
+        <span style="color: red" *ngIf="(investment.currentPrice - investment.buyPrice) < 0">-</span>
+        <span style="color: green" *ngIf="(investment.currentPrice - investment.buyPrice) >= 0">+</span>
+        <span [ngStyle]="{'color': (investment.currentPrice - investment.buyPrice) >= 0 ? 'green' : 'red'}">{{(investment.currentPrice * investment.quantity - investment.buyPrice * investment.quantity) | number : '1.0-2'}}</span>
+      </td>
+      <td>
+        <div class="bg-black-alpha-30 w-2rem h-2rem inline-block text-center cursor-pointer">
+          <i class="pi pi-pencil" style="line-height: 30px"></i>
+        </div>
+        <div class="bg-black-alpha-30 w-2rem h-2rem inline-block ml-3 text-center cursor-pointer">
+          <i class="pi pi-info-circle" style="line-height: 30px"></i>
+        </div>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>

@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "cs-investor": {
+      "hosting": {
+        "csinvestor": [
+          "cs-investor"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "cs-investor"
+  }
+}

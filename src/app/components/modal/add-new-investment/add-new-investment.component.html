@@ -1,0 +1,33 @@
+<ng-template #content let-modal>
+  <form (ngSubmit)="onSubmit(addForm)" #addForm="ngForm">
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Add new investment</h4>
+      <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+      <label class="mr-2" for="name">Name</label>
+      <input class="mb-2" type="text" pInputText id="name" name="name" ngModel required><br>
+
+      <label class="mr-2" for="steamUrl">SteamURL</label>
+      <input class="mb-2" type="text" pInputText id="steamUrl" name="steamUrl" ngModel required><br>
+
+      <label class="mr-2" for="buyPrice">Buy Price</label>
+      <input class="mb-2" type="text" pInputText id="buyPrice" name="buyPrice" ngModel required><br>
+
+      <label class="mr-2" for="quantity">Quantity</label>
+      <input class="mb-2" type="text" pInputText id="quantity" name="quantity" ngModel required><br>
+
+      <label class="mr-2" for="investedAt">Invested At</label>
+      <input class="mb-2" type="date" id="investedAt" name="investedAt" ngModel required><br>
+    </div>
+    <div class="modal-footer">
+      <button type="submit" class="btn btn-outline-dark" (click)="modal.close('Confirm')">Save</button>
+    </div>
+  </form>
+</ng-template>
+
+<div class="bg-black-alpha-30 text-center pt-3 pb-3 w-5rem m-auto border-2 border-round-2xl cursor-pointer"
+     (click)="open(content)" style="color: white">
+  <i class="pi pi-plus" style="line-height: 30px"></i>
+  <span class="pl-2">New</span>
+</div>

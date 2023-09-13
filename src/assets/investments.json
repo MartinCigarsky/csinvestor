@@ -1,0 +1,20 @@
+[
+  {
+    "uuid": "uuiqwdqdq344--31231=234",
+    "name": "Ak redline",
+    "steamUrl": "steamlink.com",
+    "buyPrice": 1.52,
+    "quantity": 5,
+    "investedAt": "2023-09-08",
+    "historyPrices": [
+      {
+        "date": "2023-09-09",
+        "price": 1.76
+      },
+      {
+        "date": "2023-09-10",
+        "price": 1.74
+      }
+    ]
+  }
+]
