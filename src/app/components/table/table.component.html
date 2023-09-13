@@ -36,7 +36,6 @@
       <td>{{ investment.buyPrice }}</td>
       <td [ngStyle]="{'color': (investment.currentPrice - investment.buyPrice) >= 0 ? 'green' : 'red'}">{{investment.currentPrice}}</td>
       <td>
-        <span style="color: red" *ngIf="(investment.currentPrice - investment.buyPrice) < 0">-</span>
         <span style="color: green" *ngIf="(investment.currentPrice - investment.buyPrice) >= 0">+</span>
         <span [ngStyle]="{'color': (investment.currentPrice - investment.buyPrice) >= 0 ? 'green' : 'red'}">{{(investment.currentPrice * investment.quantity - investment.buyPrice * investment.quantity) | number : '1.0-2'}}</span>
       </td>
