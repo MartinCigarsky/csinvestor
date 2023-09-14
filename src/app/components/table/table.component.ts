@@ -15,7 +15,7 @@ export class TableComponent implements OnInit{
   ngOnInit(): void {
     console.log('tabulka')
     this.investmentService.getInvestments().subscribe((data) => {
-      this.investments = data;
+      this.investments = data.sort((a: { name: string; }, b: { name: any; }) => a.name.localeCompare(b.name));
       console.log(this.investments);
     });
   }
