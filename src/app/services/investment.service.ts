@@ -42,6 +42,7 @@ export class InvestmentService {
     }
 
     refreshInvestments(investments: Investment[]) {
+      let index = 1;
       investments.forEach(investment => {
         this.getMarketData(investment.steamUrl).subscribe(response => {
           investment.currentPrice = parseFloat(response.lowest_price.replace('€', '').replace(',', '.'));
@@ -51,7 +52,8 @@ export class InvestmentService {
           updateDoc(docRef, inv);
           setTimeout (() => {
             console.log(investment.name + " updated");
-          }, 4000);
+          }, 4000 * index);
+          index++;
         })
       })
     }
