@@ -49,6 +49,9 @@ export class InvestmentService {
           let docRef = doc(this.db, 'investments', investment.id);
           let inv: any = investment;
           updateDoc(docRef, inv);
+          setTimeout (() => {
+            console.log(investment.name + " updated");
+          }, 4000);
         })
       })
     }
